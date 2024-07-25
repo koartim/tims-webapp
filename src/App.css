@@ -1,38 +1,49 @@
-.App {
-  text-align: center;
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   min-height: 100vh;
+}
+
+.app {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px; /* Ensure there's space for the footer */
+}
+
+footer {
+  background-color: #343a40;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  width: 100%; /* Ensure the footer takes the full width */
+  flex-shrink: 0; /* Prevent the footer from shrinking */
+}
+
+#about {
+  padding-bottom: 20px;
+  transform: scale(1.1); /* Scale everything by 10% */
+  transform-origin: top left; /* Ensure the scaling starts from the top left corner */
+}
+.profile-pic {
+  width: 100%;
+  height: auto;
+}
+.bio-card {
+  height: calc(100% - 1rem); /* Adjust to be slightly shorter than the profile picture */
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

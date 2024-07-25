@@ -1,0 +1,35 @@
+.header {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 20px;
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.navbar-brand {
+    margin-left: 20px;
+  }
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px;
+  margin-left: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: #495057;
+  border-radius: 5px;
+}
+
+.nav-links a.active {
+  background-color: #495057;
+  border-radius: 5px;
+}
