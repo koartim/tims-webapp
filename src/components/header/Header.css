@@ -1,35 +1,36 @@
-.header {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    padding: 20px;
-    background-color: #343a40;
-    color: #ffffff;
+/* Header.css */
+
+.navbar {
+  padding: 0.5rem 1rem; /* Adjust padding for the Navbar */
+}
+
+.nav-link {
+  color: #fff; /* White color for the nav links */
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.nav-link:hover, .nav-link:focus {
+  color: #ccc; /* Lighter color on hover/focus */
+  text-decoration: none; /* Removes underline on hover/focus */
 }
 
 .navbar-brand {
-    margin-left: 20px;
+  color: #fff; /* Ensures the brand is also white */
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.navbar-brand:hover, .navbar-brand:focus {
+  color: #ccc; /* Lighter color on hover/focus */
+  text-decoration: none; /* Removes underline on hover/focus */
+}
+
+.navbar-toggle {
+  border-color: #fff; /* Sets the toggle button border color */
+}
+
+/* Ensure that the toggle and collapse work correctly on small screens */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: #000; /* Background color for the collapsed menu */
   }
-
-.nav-links {
-  display: flex;
-  gap: 15px;
-}
-
-.nav-links a {
-  color: #ffffff;
-  text-decoration: none;
-  padding: 10px;
-  margin-left: 20px;
-  transition: background-color 0.3s ease;
-}
-
-.nav-links a:hover {
-  background-color: #495057;
-  border-radius: 5px;
-}
-
-.nav-links a.active {
-  background-color: #495057;
-  border-radius: 5px;
 }

@@ -9,7 +9,6 @@ export const About = () => {
         <Row className="justify-content-start mt-5">
         <Col md={4}>
           <Image src={profilePic} rounded fluid className="profile-pic" />
-          <p className="text-center">Timothy Koar</p>
         </Col>
           <Col md={8} lg={8} xl={8}>
             <Card>
