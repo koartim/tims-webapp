@@ -34,7 +34,7 @@ const Contact = () => {
   };
 
   return (
-    <Container id="contact" className="mt-5">
+    <Container id="contact" className="mt-5 pt-5">
       <Row className="justify-content-center">
         <Col md={8}>
           <h2>Contact Me</h2>
@@ -50,7 +50,7 @@ const Contact = () => {
           )}
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formName">
-              <Form.Label>Name</Form.Label>
+              <Form.Label>Subject</Form.Label>
               <Form.Control
                 type="text"
                 name="name"

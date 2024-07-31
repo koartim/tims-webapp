@@ -31,11 +31,6 @@ footer {
   flex-shrink: 0; /* Prevent the footer from shrinking */
 }
 
-#about {
-  padding-bottom: 20px;
-  transform: scale(1.1); /* Scale everything by 10% */
-  transform-origin: top left; /* Ensure the scaling starts from the top left corner */
-}
 .profile-pic {
   width: 100%;
   height: auto;

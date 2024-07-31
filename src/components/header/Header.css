@@ -1,5 +1,9 @@
 /* Header.css */
 
+.ml-3 {
+  margin-left: 1rem !important;
+}
+
 .navbar {
   padding: 0.5rem 1rem; /* Adjust padding for the Navbar */
 }
