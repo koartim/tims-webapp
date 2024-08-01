@@ -7,5 +7,16 @@
   .profile-pic {
     width: 100%;
     height: auto;
-    max-width: 150px; /* Adjust as needed */
+    max-width: 200px; /* Adjust as needed */
+  }
+
+  .about-card {
+    background-color: #f8f9fa; /* Light background color for better readability */
+    border: none; /* Remove default card border */
+    border-radius: 15px; /* Rounded corners */
+  }
+  
+  .about-text {
+    font-size: 1rem; /* Slightly larger text for better readability */
+    line-height: 1.5; /* Better line spacing */ /* Justify text for a cleaner look */
   }
