@@ -10,8 +10,8 @@ const Footer = () => {
                     <Col md={4}>
                     <h5>Follow Me!</h5>
                         <div>
-                        <a href="https://linkedin.com" className="text-light me-3"><FaLinkedin size={30} /></a>
-                        <a href="https://github.com" className="text-light me-3"><FaGithub size={30} /></a>
+                        <a href="https://www.linkedin.com/in/timothy-koar-802366115/" className="text-light me-3"><FaLinkedin size={30} /></a>
+                        <a href="https://github.com/koartim" className="text-light me-3"><FaGithub size={30} /></a>
                         </div>
                     </Col>
                 </Row>

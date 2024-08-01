@@ -22,15 +22,6 @@ main {
   padding-bottom: 20px; /* Ensure there's space for the footer */
 }
 
-footer {
-  background-color: #343a40;
-  color: #ffffff;
-  padding: 20px;
-  text-align: center;
-  width: 100%; /* Ensure the footer takes the full width */
-  flex-shrink: 0; /* Prevent the footer from shrinking */
-}
-
 .profile-pic {
   width: 100%;
   height: auto;

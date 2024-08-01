@@ -27,7 +27,7 @@ const Header = () => {
         <Navbar.Brand className='ml-3' href="/">timkoar.com</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(!expanded)} />
         <Navbar.Collapse id="basic-navbar-nav" ref={dropdownRef}>
-          <Nav className="ml-auto">
+          <Nav className="ml-3">
             <LinkContainer to="/">
               <Nav.Link onClick={() => setExpanded(false)}>About</Nav.Link>
             </LinkContainer>

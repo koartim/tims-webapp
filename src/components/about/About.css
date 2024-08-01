@@ -1,5 +1,11 @@
-#about {
-    padding-bottom: 20px;
-    transform: scale(1.1); /* Scale everything by 10% */
-    transform-origin: top left; /* Ensure the scaling starts from the top left corner */
+
+  .navbar-expanded {
+    transition: padding-top 0.3s ease-in-out;
+    padding-top: 120px; /* Adjust this value based on the navbar height */
+  }
+  
+  .profile-pic {
+    width: 100%;
+    height: auto;
+    max-width: 150px; /* Adjust as needed */
   }

@@ -8,20 +8,26 @@ export const About = () => {
         <Container id="about" className="mt-5">
         <Row className="justify-content-start mt-5">
         <Col md={4}>
-          <Image src={profilePic} rounded fluid className="profile-pic" />
+          <Image 
+            src={profilePic} 
+            variant="top"
+            rounded 
+            fluid 
+            className="profile-pic" />
         </Col>
           <Col md={8} lg={8} xl={8}>
             <Card>
-              <Card.Img variant="top" />
               <Card.Body>
                 <Card.Title>About Me</Card.Title>
                 <Card.Text>
-                  Hi, I'm a developer with a passion for creating amazing web applications.
-                  I have experience in various technologies including React, Node.js, and more.
-                  I love to learn new things and take on new challenges.
-                  Hi, I'm a developer with a passion for creating amazing web applications.
-                  Hi, I'm a developer with a passion for creating amazing web applications.
-                  I have experience in various technologies including Rea
+                Hi! My name is Timothy Koar and I am full stack developer with a BSc in Accounting. 
+                I enjoy solving complex problems and and learning new things. 
+                Over the years I have worked with a variety of different tech stacks, and as a result I have
+                developed an ability to recognize patterns and get up to speed quickly.  
+                My most recent experience is as a software developer for 'REI Systems', a software company that develops and maintains
+                a variety of different software products for numerous governmental bodies.
+
+                Please visit the contact me page for any business inquiries
                 </Card.Text>
               </Card.Body>
             </Card>
