@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Alert, Spinner } from 'react-bootstrap';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [formStatus, setFormStatus] = useState({ submitted: false, error: false });
+  const [formData, setFormData] = useState({ name: '', message: '' });
+  const [formStatus, setFormStatus] = useState({ submitted: false, error: false, loading: false });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,7 +24,7 @@ const Contact = () => {
 
       if (response.ok) {
         setFormStatus({ submitted: true, error: false });
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({ name: '', message: '' });
       } else {
         setFormStatus({ submitted: false, error: true });
       }
@@ -48,7 +48,7 @@ const Contact = () => {
               There was an error sending your message. Please try again.
             </Alert>
           )}
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} className='mt-3'>
             <Form.Group controlId="formName">
               <Form.Label>Subject</Form.Label>
               <Form.Control
@@ -57,16 +57,7 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-              />
-            </Form.Group>
-            <Form.Group controlId="formEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
+                className='mb-3'
               />
             </Form.Group>
             <Form.Group controlId="formMessage">
@@ -78,10 +69,17 @@ const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 required
+                className='mb-3'
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
+            <Button variant="primary" type="submit" disabled={formStatus.loading} className="w-25">
+            {formStatus.loading ? 
+            (
+              <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" />) 
+            : 
+            (
+              'Submit'
+            )}
             </Button>
           </Form>
         </Col>

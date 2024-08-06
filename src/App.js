@@ -5,7 +5,7 @@ import Header from './components/header/Header';
 import About from './components/about/About';
 import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
-import Blog from './components/Blog';
+import Blog from './components/blog/Blog';
 
 function App() {
   return (
