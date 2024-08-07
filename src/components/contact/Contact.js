@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert, Spinner } from 'react-bootstrap';
+import "./Contact.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', message: '' });
@@ -13,6 +14,13 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!formData.name || !formData.message) {
+      setFormStatus({ submitted: false, error: true, loading: false });
+      return;
+    }
+
+    setFormStatus({ ...formStatus, loading: true });
+
     try {
       const response = await fetch('http://localhost:8080/api/contact', {
         method: 'POST',
@@ -23,18 +31,18 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        setFormStatus({ submitted: true, error: false });
+        setFormStatus({ submitted: true, error: false, loading: false});
         setFormData({ name: '', message: '' });
       } else {
-        setFormStatus({ submitted: false, error: true });
+        setFormStatus({ submitted: false, error: true, loading: false });
       }
     } catch (error) {
-      setFormStatus({ submitted: false, error: true });
+      setFormStatus({ submitted: false, error: true, loading: false });
     }
   };
 
   return (
-    <Container id="contact" className="mt-5 pt-5">
+    <Container id="contact" className="contact-container mt-5">
       <Row className="justify-content-center">
         <Col md={8}>
           <h2>Contact Me</h2>

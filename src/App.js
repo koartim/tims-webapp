@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/header/Header';
@@ -8,6 +8,13 @@ import Footer from './components/footer/Footer';
 import Blog from './components/blog/Blog';
 
 function App() {
+
+  const [ isNavbarExpanded, setIsNavbarExpanded ] = useState(false);
+
+  const handleToggle = (expanded) => {
+    setIsNavbarExpanded(expanded);
+  }
+
   return (
     <Router>
       <div className='app'>
