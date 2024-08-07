@@ -1,13 +1,18 @@
 .profile-pic {
   width: 100%;
   height: auto;
-  max-width: 200px; /* Adjust as needed */
+  max-width: 150px; /* Adjust as needed */
+  border-radius: 50%; /* Ensures the image is circular */
+  object-fit: cover; /* Ensures the image covers the area */
+  padding: 10px;
+  margin: 0 auto; /* Center the image horizontally */
 }
 
 .about-card {
   background-color: #f8f9fa; /* Light background color for better readability */
   border: none; /* Remove default card border */
   border-radius: 15px; /* Rounded corners */
+  overflow: hidden; /* Ensures content stays within the border */
 }
 
 .about-text {
@@ -27,19 +32,19 @@
 .custom-tabs .nav-link {
   border: 1px solid transparent;
   border-radius: .25rem .25rem 0 0;
-  color: #6c757d; /* Tab text color */
+  color: #6c757d !important; /* Gray color for inactive tabs with !important */
 }
 
 .custom-tabs .nav-link.active,
 .custom-tabs .nav-link:focus,
 .custom-tabs .nav-link:hover {
-  color: #495057;
-  background-color: #fff;
-  border-color: #dee2e6 #dee2e6 #fff;
+  color: #495057 !important;
+  background-color: #fff !important;
+  border-color: #dee2e6 #dee2e6 #fff !important;
 }
 
 .custom-tabs .nav-link.disabled {
-  color: #6c757d;
-  background-color: transparent;
-  border-color: transparent;
+  color: #6c757d !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
 }

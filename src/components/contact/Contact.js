@@ -9,8 +9,11 @@ const Contact = () => {
   const MAX_MESSAGE_LENGTH = 255;
 
   const handleChange = (e) => {
+    console.log(e.target)
     const { name, value, files } = e.target;
-    if (files) {
+    console.log("files ", files)
+    debugger
+    if (!!files) {
       setFormData({ ...formData, [name]: files[0] });
     } else {
       setFormData({ ...formData, [name]: value });
@@ -19,7 +22,6 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    debugger
 
     if (!formData.name || !formData.message) {
       setFormStatus({ submitted: false, error: true, loading: false });
@@ -28,7 +30,8 @@ const Contact = () => {
     setFormStatus({ ...formStatus, loading: true });
 
     const formDataToSend = new FormData();
-    formDataToSend.append('contact', JSON.stringify({ name: formData.name, message: formData.message }));
+    formDataToSend.append('name', formData.name);
+    formDataToSend.append('message', formData.message);
     if (formData.file) {
       formDataToSend.append('file', formData.file);
     }
@@ -36,10 +39,7 @@ const Contact = () => {
     try {
       const response = await fetch('http://localhost:8080/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formDataToSend),
+        body: JSON.stringify(formDataToSend)
       });
 
       if (response.ok) {
@@ -82,6 +82,9 @@ const Contact = () => {
             </Form.Group>
             <Form.Group controlId="formMessage">
               <Form.Label>Message</Form.Label>
+              <small className="character-counter">
+                {formData.message.length}/{MAX_MESSAGE_LENGTH} characters
+              </small>
               <Form.Control
                 as="textarea"
                 rows={3}
@@ -92,11 +95,8 @@ const Contact = () => {
                 maxLength={255}
                 className='mb-3'
               />
-              <small className="character-counter">
-                {formData.message.length}/{MAX_MESSAGE_LENGTH} characters
-              </small>
             </Form.Group>
-            <Form.Group controlId="formFile">
+            <Form.Group controlId="formFile" className='mt-3'>
               <Form.Label>Attachment</Form.Label>
               <Form.Control
                 type="file"
