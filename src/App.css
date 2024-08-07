@@ -20,15 +20,9 @@ main {
   display: flex;
   flex-direction: column;
   padding-bottom: 20px; /* Ensure there's space for the footer */
+  transition: margin-top 0.3s ease-in-out;
 }
 
-.profile-pic {
-  width: 100%;
-  height: auto;
-}
-.bio-card {
-  height: calc(100% - 1rem); /* Adjust to be slightly shorter than the profile picture */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.navbar-expanded {
+  margin-top: 200px; /* Adjust this value based on the navbar height */
 }

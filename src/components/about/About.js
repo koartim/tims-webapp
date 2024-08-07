@@ -3,9 +3,9 @@ import { Container, Row, Col, Card, Image } from 'react-bootstrap';
 import profilePic from '../../assets/profile.JPG';
 import './About.css';
 
-const About = ({ isNavbarExpanded }) => {
+const About = () => {
   return (
-    <Container id="about" className={`mt-5 pt-5 ${isNavbarExpanded ? 'navbar-expanded' : ''}`}>
+    <Container id="about" className="mt-5 pt-5">
       <Row className="justify-content-center mt-5">
         <Col md={10}>
           <Card className="about-card shadow-sm">

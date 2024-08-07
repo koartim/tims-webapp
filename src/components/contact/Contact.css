@@ -31,3 +31,11 @@ button {
   font-size: 1.1rem;
   padding: 10px 0;
 }
+
+.character-counter {
+  display: block;  
+  bottom: 10px;
+  right: 15px;
+  font-size: 0.875rem;
+  color: #6c757d;
+}

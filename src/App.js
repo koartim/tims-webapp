@@ -18,8 +18,8 @@ function App() {
   return (
     <Router>
       <div className='app'>
-        <Header />
-        <main>
+        <Header onToggle={handleToggle} />
+        <main className={isNavbarExpanded ? 'navbar-expanded' : ''}>
           <Routes>
             <Route path="/" element={<About />} />
             <Route path="/contact" element={<Contact />} />
