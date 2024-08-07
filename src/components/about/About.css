@@ -1,16 +1,45 @@
-    .profile-pic {
-    width: 100%;
-    height: auto;
-    max-width: 200px; /* Adjust as needed */
-  }
+.profile-pic {
+  width: 100%;
+  height: auto;
+  max-width: 200px; /* Adjust as needed */
+}
 
-  .about-card {
-    background-color: #f8f9fa; /* Light background color for better readability */
-    border: none; /* Remove default card border */
-    border-radius: 15px; /* Rounded corners */
-  }
-  
-  .about-text {
-    font-size: 1rem; /* Slightly larger text for better readability */
-    line-height: 1.5; /* Better line spacing */ /* Justify text for a cleaner look */
-  }
+.about-card {
+  background-color: #f8f9fa; /* Light background color for better readability */
+  border: none; /* Remove default card border */
+  border-radius: 15px; /* Rounded corners */
+}
+
+.about-text {
+  font-size: 1rem; /* Slightly larger text for better readability */
+  line-height: 1.5; /* Better line spacing */
+}
+
+.custom-tabs .nav-tabs {
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.custom-tabs .nav-item {
+  margin-bottom: -1px;
+}
+
+.custom-tabs .nav-link {
+  border: 1px solid transparent;
+  border-radius: .25rem .25rem 0 0;
+  color: #6c757d; /* Tab text color */
+}
+
+.custom-tabs .nav-link.active,
+.custom-tabs .nav-link:focus,
+.custom-tabs .nav-link:hover {
+  color: #495057;
+  background-color: #fff;
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.custom-tabs .nav-link.disabled {
+  color: #6c757d;
+  background-color: transparent;
+  border-color: transparent;
+}

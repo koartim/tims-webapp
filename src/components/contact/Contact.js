@@ -11,13 +11,15 @@ const Contact = () => {
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (files) {
-      setFormData({ ...formData, [name]: files[0] })
+      setFormData({ ...formData, [name]: files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
     }
-    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    debugger
 
     if (!formData.name || !formData.message) {
       setFormStatus({ submitted: false, error: true, loading: false });
@@ -25,12 +27,10 @@ const Contact = () => {
 
     setFormStatus({ ...formStatus, loading: true });
 
-    const formDataToPost = new FormData();
-    formDataToPost.append('name', formDataToPost.name);
-    formDataToPost.append('message', formData.message);
-
+    const formDataToSend = new FormData();
+    formDataToSend.append('contact', JSON.stringify({ name: formData.name, message: formData.message }));
     if (formData.file) {
-      formDataToPost.append('file', formData.file);
+      formDataToSend.append('file', formData.file);
     }
 
     try {
@@ -39,7 +39,7 @@ const Contact = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formDataToSend),
       });
 
       if (response.ok) {
