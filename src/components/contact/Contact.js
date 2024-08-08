@@ -12,7 +12,6 @@ const Contact = () => {
     console.log(e.target)
     const { name, value, files } = e.target;
     console.log("files ", files)
-    debugger
     if (!!files) {
       setFormData({ ...formData, [name]: files[0] });
     } else {
@@ -35,11 +34,10 @@ const Contact = () => {
     if (formData.file) {
       formDataToSend.append('file', formData.file);
     }
-
     try {
       const response = await fetch('http://localhost:8080/api/contact', {
         method: 'POST',
-        body: JSON.stringify(formDataToSend)
+        body: formDataToSend
       });
 
       if (response.ok) {
@@ -99,10 +97,12 @@ const Contact = () => {
             <Form.Group controlId="formFile" className='mt-3'>
               <Form.Label>Attachment</Form.Label>
               <Form.Control
-                type="file"
-                name="file"
+                type='file'
+                id="custom-file" 
+                label={formData.file ? formData.file.name : 'Choose file'} 
+                custom 
                 onChange={handleChange}
-                className='mb-3'
+                data-browse="Browse"
               />
             </Form.Group>
             <Button variant="primary" type="submit" disabled={formStatus.loading} className="w-25 mt-3">
