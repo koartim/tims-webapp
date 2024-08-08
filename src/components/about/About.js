@@ -10,7 +10,7 @@ const About = () => {
         <Col md={10}>
           <Card className="about-card shadow-sm">
             <Row className="no-gutters">
-              <Col md={4} sm={6} xs={12} className="text-center image-container">
+              <Col lg={6} md={6} sm={6} xs={12} className="text-center image-container">
                 <Image 
                   src={profilePic} 
                   roundedCircle 
@@ -18,7 +18,7 @@ const About = () => {
                   className="profile-pic my-4" 
                 />
               </Col>
-              <Col md={8} sm={6} xs={12}>
+              <Col lg={6} md={6} sm={6} xs={12}>
                 <Card.Body>
                 <Tabs defaultActiveKey="aboutMe" id="about-tabs" className="custom-tabs">
                     <Tab eventKey="aboutMe" title="Bio">

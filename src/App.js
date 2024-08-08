@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/header/Header';
@@ -14,6 +14,19 @@ function App() {
   const handleToggle = (expanded) => {
     setIsNavbarExpanded(expanded);
   }
+
+  const handleResize = () => {
+    if (window.innerWidth > 992) {
+      setIsNavbarExpanded(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <Router>
