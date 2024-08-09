@@ -7,6 +7,7 @@ const Blog = () => {
         <Container>
             <Row className='justify-content-creator'>
                 <Col>
+                    
                 </Col>
             </Row>
         </Container>

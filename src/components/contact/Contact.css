@@ -1,5 +1,5 @@
 .contact-container {
-  padding-top: 80px;
+  padding-top: 60px;
   padding-bottom: 60px;
 }
 
@@ -70,4 +70,30 @@ button {
 
 .custom-file-label:hover {
   background-color: #d6d8db;
+}
+
+.fade-alert {
+  transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out, margin 0.3s ease-in-out;
+  max-height: 100px; /* Adjust this to match the actual height of the alert */
+  overflow: hidden;
+}
+
+.fade-out {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+}
+
+.alert-container {
+  transition: max-height 0.3s ease-in-out, margin 0.3s ease-in-out;
+}
+
+.alert-container.hide {
+  max-height: 0;
+  overflow: hidden;
+  margin: 0;
+}
+
+.alert-container.show {
+  max-height: 58px; /* Adjust this to match the actual height of the alert container */
 }
