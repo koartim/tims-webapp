@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Header = ( { onToggle } ) => {
@@ -29,7 +30,7 @@ const Header = ( { onToggle } ) => {
   return (
     <header className="bg-dark text-white">
       <Navbar bg="dark" variant="dark" expand="lg" fixed="top" expanded={expanded}>
-        <Navbar.Brand className='ml-3' href="/">timkoar.com</Navbar.Brand>
+        <Link to="/" className='navbar-brand ml-3'>timkoar.com</Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleToggle} />
         <Navbar.Collapse id="basic-navbar-nav" ref={dropdownRef}>
           <Nav className="ml-3">
