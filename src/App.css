@@ -26,3 +26,12 @@ main {
 .navbar-expanded {
   margin-top: 100px; /* Adjust this value based on the navbar height */
 }
+
+/* Fade in/out transitions */
+.fade-in {
+  opacity: 1 !important;
+}
+
+.fade-out {
+  opacity: 0 !important;
+}

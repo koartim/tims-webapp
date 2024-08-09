@@ -48,3 +48,30 @@
   background-color: transparent !important;
   border-color: transparent !important;
 }
+
+/* Additional styling for the resume section */
+.resume-text h5, .resume-text h6 {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.resume-text p {
+  margin-bottom: 10px;
+}
+
+.resume-text ul {
+  padding-left: 20px;
+}
+
+.resume-text ul li {
+  margin-bottom: 5px;
+}
+
+.image-container {
+  padding: 15px;
+}
+
+.resume-text {
+  font-size: 1rem;
+  line-height: 1.5;
+}

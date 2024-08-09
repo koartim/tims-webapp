@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
     return (
@@ -9,15 +9,19 @@ const Footer = () => {
                 <Row>
                     <Col md={4}>
                     <h5>Follow Me!</h5>
-                        <div>
-                        <a href="https://www.linkedin.com/in/timothy-koar-802366115/" className="text-light me-3"><FaLinkedin size={30} /></a>
-                        <a href="https://github.com/koartim" className="text-light me-3"><FaGithub size={30} /></a>
-                        </div>
+                    <div>
+                        <a href="https://www.linkedin.com/in/timothy-koar-802366115/" className="text-light me-3" aria-label="LinkedIn Profile">
+                            <FaLinkedin size={30} />
+                        </a>
+                        <a href="https://github.com/koartim" className="text-light me-3" aria-label="GitHub Profile">
+                            <FaGithub size={30} />
+                        </a>
+                    </div>
                     </Col>
                 </Row>
                 <Row className="mt-4">
                     <Col md={6}>
-                        <p>&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
+                        <p>&copy; {new Date().getFullYear()} timkoar.com All rights reserved.</p>
                     </Col>
                     <Col md={6} className="text-md-end">
                         <a href="/privacy-policy" className="text-light me-3">Privacy Policy</a>
