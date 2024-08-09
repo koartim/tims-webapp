@@ -17,7 +17,7 @@ const About = () => {
         <Col md={10}>
           <Card className="about-card shadow-sm">
             <Row className="no-gutters">
-              <Col md={4} sm={6} xs={12} className="text-center image-container">
+              <Col md={6} sm={6} xs={12} className="text-center image-container">
                 <Image 
                   src={profilePic} 
                   roundedCircle 
@@ -26,7 +26,7 @@ const About = () => {
                   onClick={handleTabSwitch} /* switch tab when  profile pic is clicked */
                 />
               </Col>
-              <Col md={8} sm={6} xs={12}>
+              <Col md={6} sm={6} xs={12}>
                 <Card.Body>
                   <Tabs 
                     activeKey={activeTab} 
@@ -35,7 +35,7 @@ const About = () => {
                     id="about-tabs" 
                     className="custom-tabs">
                     <Tab eventKey="aboutMe" title="Bio">
-                      <Card.Title className="text-center">About Me</Card.Title>
+                      <Card.Title className="mt-3">About Me</Card.Title>
                       <Card.Text className="about-text">
                         Hi, I'm Timothy Koar, a full stack developer from Asbury Park, NJ. I've been a professional developer for 5 years with my most recent experience being a fullstack senior developer for REI Systems. 
                         <br /><br />
@@ -45,18 +45,7 @@ const About = () => {
                       </Card.Text>
                     </Tab>
                     <Tab eventKey="resume" title="Resume">
-                      <Card.Title className="text-center">Resume</Card.Title>
                       <ListGroup variant="flush" className="resume-section">
-                        <ListGroup.Item>
-                          <h5>Timothy Koar</h5>
-                          <p><strong>Email:</strong> koartimothy@gmail.com | <strong>Location:</strong> Interlaken, NJ</p>
-                        </ListGroup.Item>
-                        <ListGroup.Item>
-                          <h6>Summary</h6>
-                          <p>
-                            Full stack developer with expertise in Angular, React, Spring Boot, and MySQL. Experienced in all phases of the development lifecycle and adept at problem-solving. Holds a 'Secret' security clearance.
-                          </p>
-                        </ListGroup.Item>
                         <ListGroup.Item>
                           <h6>Experience</h6>
                           <h6>REI Systems | Software Developer</h6>
@@ -85,11 +74,11 @@ const About = () => {
                         <ListGroup.Item>
                           <h6>Education</h6>
                           <p>
-                            <strong>Flatiron School</strong> | Full Stack Web Development<br />
+                            Flatiron School | Full Stack Web Development<br />
                             <em>2019 | New York, NY</em>
                           </p>
                           <p>
-                            <strong>Monmouth University</strong> | B.S. in Business Administration<br />
+                            Monmouth University | B.S. in Business Administration<br />
                             <em>2018 | West Long Branch, NJ</em>
                           </p>
                         </ListGroup.Item>
