@@ -9,17 +9,17 @@ const Header = ( { onToggle } ) => {
   const dropdownRef = useRef(null);
 
   const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target) && expanded) {
       setExpanded(false);
       onToggle(false);
     }
   };
 
   const handleToggle = () => {
-    const newExpanded = !expanded;
-    setExpanded(newExpanded);
-    onToggle(newExpanded);
+    setExpanded(!expanded);
+    onToggle(!expanded);
   };
+
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
