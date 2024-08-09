@@ -6,6 +6,13 @@
   object-fit: cover; /* Ensures the image covers the area */
   padding: 10px;
   margin: 0 auto; /* Center the image horizontally */
+  cursor: pointer; /* Makes it look clickable */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-pic:active {
+  transform: scale(0.95); /* Slightly reduce the size to create a pressed effect */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); /* Adds an inset shadow to give the impression of depth */
 }
 
 .about-card {
@@ -15,7 +22,7 @@
   overflow: hidden; /* Ensures content stays within the border */
 }
 
-.about-text {
+.about-text, .resume-section p, .resume-section ul {
   font-size: 1rem; /* Slightly larger text for better readability */
   line-height: 1.5; /* Better line spacing */
 }
@@ -49,29 +56,24 @@
   border-color: transparent !important;
 }
 
-/* Additional styling for the resume section */
-.resume-text h5, .resume-text h6 {
+.resume-section {
+  margin-top: 10px;
+}
+
+.resume-section h5, .resume-section h6 {
   font-weight: bold;
   margin-top: 15px;
 }
 
-.resume-text p {
+.resume-section p {
   margin-bottom: 10px;
 }
 
-.resume-text ul {
+.resume-section ul {
   padding-left: 20px;
+  list-style-type: disc;
 }
 
-.resume-text ul li {
+.resume-section ul li {
   margin-bottom: 5px;
-}
-
-.image-container {
-  padding: 15px;
-}
-
-.resume-text {
-  font-size: 1rem;
-  line-height: 1.5;
 }
