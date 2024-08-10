@@ -1,0 +1,29 @@
+/* Smooth fade-in and fade-out effect */
+.fade-alert {
+    transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+    opacity: 1;
+    max-height: 100px; /* Adjust this based on the alert's height */
+    overflow: hidden;
+}
+
+.fade-out {
+    opacity: 0;
+    max-height: 0;
+    pointer-events: none;
+}
+
+.alert-container {
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.alert-container.hide {
+    opacity: 0;
+    max-height: 0;
+    pointer-events: none;
+}
+
+.alert-container.show {
+    opacity: 1;
+    max-height: 100px; /* Ensure this matches the max-height set above */
+}

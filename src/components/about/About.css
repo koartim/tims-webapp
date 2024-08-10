@@ -97,7 +97,7 @@ button {
 
 /* Added/Modified styles for About page */
 .profile-pic {
-  width: 125%; /* 25% larger */
+  width: 100%; /* 25% larger */
   height: auto;
   max-width: 200px; /* Adjust this to control the max size */
   border-radius: 50%; /* Ensures the image is circular */

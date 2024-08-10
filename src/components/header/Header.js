@@ -16,8 +16,10 @@ const Header = ( { onToggle } ) => {
   };
 
   const handleToggle = () => {
-    setExpanded(!expanded);
-    onToggle(!expanded);
+    if (window.innerWidth <= 992) { // Only toggle if the window width is small enough
+      setExpanded((prevExpanded) => !prevExpanded);
+      onToggle(!expanded);
+    }
   };
 
   useEffect(() => {
@@ -27,10 +29,19 @@ const Header = ( { onToggle } ) => {
     };
   }, []);
 
+  const handleBrandClick = (event) => {
+    event.preventDefault();
+    event.target.classList.add('pressed');
+    setTimeout(() => {
+      event.target.classList.remove('pressed');
+      handleToggle(); // Toggle the navbar dropdown
+    }, 150); // Adjust the duration as needed
+  };
+
   return (
     <header className="bg-dark text-white">
       <Navbar bg="dark" variant="dark" expand="lg" fixed="top" expanded={expanded}>
-        <Link to="/" className='navbar-brand ml-3'>timkoar.com</Link>
+        <Link to="/" onClick={handleBrandClick} className='navbar-brand ml-3'>timkoar.com</Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleToggle} />
         <Navbar.Collapse id="basic-navbar-nav" ref={dropdownRef}>
           <Nav className="ml-3">

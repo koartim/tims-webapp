@@ -19,8 +19,13 @@
 }
 
 .navbar-brand {
-  color: #fff; /* Ensures the brand is also white */
-  transition: color 0.3s; /* Smooth transition for hover effect */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.navbar-brand.pressed {
+  transform: scale(0.95); /* Slightly reduce the size to create a pressed effect */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); /* Adds an inset shadow to give the impression of depth */
 }
 
 .navbar-brand:hover, .navbar-brand:focus {
