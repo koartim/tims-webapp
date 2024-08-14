@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Spinner } from 'react-bootstrap';
 import "./Contact.css";
-import FadeAlert from './misc/FadeAlert';  // Make sure the path is correct based on your file structure
+import FadeAlert from './misc/FadeAlert';
 
-const Contact = () => {
+const Contact = ({ csrfHeader, csrfToken }) => {
   const [formData, setFormData] = useState({ name: '', message: '', file: null });
   const [formStatus, setFormStatus] = useState({ submitted: false, error: false, loading: false });
 
+  const apiUrl = process.env.REACT_APP_API_URL;
   const MAX_MESSAGE_LENGTH = 255;
 
   const handleChange = (e) => {
@@ -31,25 +32,30 @@ const Contact = () => {
     const formDataToSend = new FormData();
     formDataToSend.append('name', formData.name);
     formDataToSend.append('message', formData.message);
+
     if (formData.file) {
       formDataToSend.append('file', formData.file);
     }
 
-    try {
-      const response = await fetch('http://localhost:8080/api/contact', {
-        method: 'POST',
-        body: formDataToSend 
-      });
-
-      if (response.ok) {
-        setFormStatus({ submitted: true, error: false, loading: false });
-        setFormData({ name: '', message: '', file: null });
-      } else {
+      try {
+        const response = await fetch(`${apiUrl}/contact`, {
+          method: 'POST',
+          headers: {
+              'X-XSRF-TOKEN': csrfToken
+          },
+          credentials: 'include',
+          body: formDataToSend
+        });
+  
+        if (response.ok) {
+          setFormStatus({ submitted: true, error: false, loading: false });
+          setFormData({ name: '', message: '', file: null });
+        } else {
+          setFormStatus({ submitted: false, error: true, loading: false });
+        }
+      } catch (error) {
         setFormStatus({ submitted: false, error: true, loading: false });
       }
-    } catch (error) {
-      setFormStatus({ submitted: false, error: true, loading: false });
-    }
   };
 
   return (

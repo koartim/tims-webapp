@@ -9,6 +9,32 @@ import Blog from './components/blog/Blog';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 function App() {
+  const [csrfToken, setCsrfToken] = useState(null);
+  const [csrfHeader, setCsrfHeader] = useState(null);
+
+  useEffect(() => {
+    const fetchCsrfToken = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/api/csrf-token', {
+          credentials: 'include', // need this to include the xsrf token in the request
+        });
+        const data = await response.json();
+        setCsrfToken(data.token);
+        setCsrfHeader(data.headerName);
+      } catch (error) {
+        console.error('Error fetching CSRF token:', error);
+      }
+    };
+
+    fetchCsrfToken();
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const [ isNavbarExpanded, setIsNavbarExpanded ] = useState(false);
   const location = useLocation();
@@ -23,13 +49,6 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
   return (
     <div className='app'>
       <Header onToggle={handleToggle} />
@@ -41,7 +60,7 @@ function App() {
             classNames="fade">
             <Routes location={location}>
               <Route path="/" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
+              <Route path="/contact" element={<Contact csrfToken={csrfToken} csrfHeader={csrfHeader}/>} />
               <Route path="/blog" element={<Blog />} />
             </Routes>
           </CSSTransition>
