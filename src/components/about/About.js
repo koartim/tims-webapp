@@ -41,7 +41,7 @@ const About = () => {
                         <br /><br />
                         Over the years, I've worked with numerous different tech stacks and am well versed with every phase of the development lifecycle. I can get up to speed fast and make an immediate impact for any team.
                         <br /><br />
-                        When I'm not coding, you can find me exploring the latest in tech, playing guitar, or relaxing on the beach with a good book.
+                        When I'm not coding, you can find me exploring the latest in tech, playing guitar, or hanging out at the beach.
                       </Card.Text>
                     </Tab>
                     <Tab eventKey="resume" title="Resume">
