@@ -5,7 +5,7 @@ import Header from './components/header/Header';
 import About from './components/about/About';
 import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
-import Blog from './components/blog/Blog';
+import Blog from './components/blog/BlogCard';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 function App() {
@@ -13,19 +13,23 @@ function App() {
   const [csrfHeader, setCsrfHeader] = useState(null);
 
   useEffect(() => {
+    console.log("here")
     const fetchCsrfToken = async () => {
       try {
-        const response = await fetch('/api/csrf-token', {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/csrf-token`, {
           credentials: 'include', // need this to include the xsrf token in the request
         });
+        // const response = await fetch("http://localhost:8080/csrf-token", {
+        //   credentials: 'include', // need this to include the xsrf token in the request
+        // });
         const data = await response.json();
+        console.log("data.token ", data.token)
         setCsrfToken(data.token);
         setCsrfHeader(data.headerName);
       } catch (error) {
         console.error('Error fetching CSRF token:', error);
       }
     };
-
     fetchCsrfToken();
   }, []);
 

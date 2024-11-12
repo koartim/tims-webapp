@@ -4,7 +4,7 @@ import "./Contact.css";
 import FadeAlert from './misc/FadeAlert';
 
 const Contact = ({ csrfHeader, csrfToken }) => {
-  const [formData, setFormData] = useState({ name: '', message: '', file: null });
+  const [formData, setFormData] = useState({ name: '', email:'', message: '', file: null });
   const [formStatus, setFormStatus] = useState({ submitted: false, error: false, loading: false });
 
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -21,8 +21,8 @@ const Contact = ({ csrfHeader, csrfToken }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!formData.name || !formData.message) {
+    console.log("csrfToken ", csrfToken)
+    if (!formData.name || !formData.message || !formData.email) {
       setFormStatus({ submitted: false, error: true, loading: false });
       return;
     }
@@ -32,6 +32,7 @@ const Contact = ({ csrfHeader, csrfToken }) => {
     const formDataToSend = new FormData();
     formDataToSend.append('name', formData.name);
     formDataToSend.append('message', formData.message);
+    formDataToSend.append('email', formData.email)
 
     if (formData.file) {
       formDataToSend.append('file', formData.file);
@@ -46,10 +47,19 @@ const Contact = ({ csrfHeader, csrfToken }) => {
           credentials: 'include',
           body: formDataToSend
         });
+
+        // const response = await fetch("http://localhost:8080/api/contact", {
+        //   method: 'POST',
+        //   headers: {
+        //       'X-XSRF-TOKEN': csrfToken
+        //   },
+        //   credentials: 'include',
+        //   body: formDataToSend
+        // });
   
         if (response.ok) {
           setFormStatus({ submitted: true, error: false, loading: false });
-          setFormData({ name: '', message: '', file: null });
+          setFormData({ name: '', email: '', message: '', file: null });
         } else {
           setFormStatus({ submitted: false, error: true, loading: false });
         }
@@ -85,6 +95,17 @@ const Contact = ({ csrfHeader, csrfToken }) => {
                 onChange={handleChange}
                 required
                 className='mb-3'
+              />
+            </Form.Group>
+            <Form.Group controlId="formEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="mb-3"
               />
             </Form.Group>
             <Form.Group controlId="formMessage">
