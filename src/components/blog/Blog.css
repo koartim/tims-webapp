@@ -1,0 +1,29 @@
+.blog-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 80px 60px 60px;
+    padding: 100px;
+    max-width: 800px;
+    text-align: center;
+  }
+
+  .blog-card {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: left;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+  }
+  
+  .blog-content {
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
