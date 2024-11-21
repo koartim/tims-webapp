@@ -38,7 +38,6 @@ const Contact = ({ csrfHeader, csrfToken }) => {
     }
 
       try {
-        console.log("csrfToken ", csrfToken)
         const response = await fetch(`${apiUrl}/contact`, {
           method: 'POST',
           headers: {

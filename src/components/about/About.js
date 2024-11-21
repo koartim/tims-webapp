@@ -53,7 +53,7 @@ const About = () => {
                           <ul>
                             <li>Enhanced user experience with UI improvements and workflow optimizations.</li>
                             <li>Developed and maintained key features for government web applications.</li>
-                            <li>Conducted BDD testing to ensure robust functionality.</li>
+                            <li>Conducted TDD as well as BDD (cucumber & selenium) testing to ensure robust functionality.</li>
                           </ul>
                         </ListGroup.Item>
                         <ListGroup.Item>
