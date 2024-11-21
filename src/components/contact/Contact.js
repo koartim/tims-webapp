@@ -21,7 +21,6 @@ const Contact = ({ csrfHeader, csrfToken }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("csrfToken ", csrfToken)
     if (!formData.name || !formData.message || !formData.email) {
       setFormStatus({ submitted: false, error: true, loading: false });
       return;
@@ -39,6 +38,7 @@ const Contact = ({ csrfHeader, csrfToken }) => {
     }
 
       try {
+        console.log("csrfToken ", csrfToken)
         const response = await fetch(`${apiUrl}/contact`, {
           method: 'POST',
           headers: {
@@ -47,16 +47,6 @@ const Contact = ({ csrfHeader, csrfToken }) => {
           credentials: 'include',
           body: formDataToSend
         });
-
-        // const response = await fetch("http://localhost:8080/api/contact", {
-        //   method: 'POST',
-        //   headers: {
-        //       'X-XSRF-TOKEN': csrfToken
-        //   },
-        //   credentials: 'include',
-        //   body: formDataToSend
-        // });
-  
         if (response.ok) {
           setFormStatus({ submitted: true, error: false, loading: false });
           setFormData({ name: '', email: '', message: '', file: null });
@@ -66,6 +56,25 @@ const Contact = ({ csrfHeader, csrfToken }) => {
       } catch (error) {
         setFormStatus({ submitted: false, error: true, loading: false });
       }
+
+      // try {
+      //   const response = await fetch("http://localhost:8080/api/contact", {
+      //     method: 'POST',
+      //     headers: {
+      //         'X-XSRF-TOKEN': csrfToken
+      //     },
+      //     credentials: 'include',
+      //     body: formDataToSend
+      //   });
+      //   if (response.ok) {
+      //     setFormStatus({ submitted: true, error: false, loading: false });
+      //     setFormData({ name: '', email: '', message: '', file: null });
+      //   } else {
+      //     setFormStatus({ submitted: false, error: true, loading: false });
+      //   }
+      // } catch (error) {
+      //   setFormStatus({ submitted: false, error: true, loading: false });
+      // }
   };
 
   return (
