@@ -7,6 +7,7 @@ import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
 import Blog from './components/blog/BlogCard';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import BlogList from './components/blog/BlogList';
 
 function App() {
   const [csrfToken, setCsrfToken] = useState(null);
@@ -15,13 +16,13 @@ function App() {
   useEffect(() => {
     const fetchCsrfToken = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/csrf-token`, {
-          credentials: 'include', // need this to include the xsrf token in the request
-        });
-
-        // const response = await fetch("http://localhost:8080/csrf-token", {
+        // const response = await fetch(`${process.env.REACT_APP_API_URL}/csrf-token`, {
         //   credentials: 'include', // need this to include the xsrf token in the request
         // });
+
+        const response = await fetch("http://localhost:8080/api/csrf-token", {
+          credentials: 'include', // need this to include the xsrf token in the request
+        });
         const data = await response.json();
         if (data && data.token) {
           setCsrfToken(data.token);
@@ -66,7 +67,7 @@ function App() {
             <Routes location={location}>
               <Route path="/" element={<About />} />
               <Route path="/contact" element={<Contact csrfToken={csrfToken} csrfHeader={csrfHeader}/>} />
-              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog" element={<BlogList csrfToken={csrfToken} />} />
             </Routes>
           </CSSTransition>
         </TransitionGroup>

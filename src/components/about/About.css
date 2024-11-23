@@ -1,9 +1,3 @@
-/* Existing styles */
-.contact-container {
-  padding-top: 80px;
-  padding-bottom: 60px;
-}
-
 h2 {
   margin-bottom: 20px; /* Increased bottom margin */
   font-size: 2rem; /* Increased font size */
@@ -119,7 +113,6 @@ button {
 }
 
 .about-card {
-  background-color: #f8f9fa;
   border: none;
   border-radius: 15px;
   overflow: hidden;
