@@ -19,9 +19,9 @@ const BlogList = ({ csrfToken }) => {
                 if (!rsp.ok) {
                     throw new Error("Failed to fetch blogs");
                 }
-                console.log(rsp)
                 const data = await rsp.json(); // .json reads and parses the response and converts it into json, this is an async action so we need to use await
                 setBlogs(data); // without await, we would get a promise here instead of a json object and it would fail, we need to wait for the response to be parsed into json, this process can take time, especially if the response is very large
+                console.log(data)
             } catch (error) {
                 console.error("Error occurred during fetch: ", error);
             } finally {
@@ -45,8 +45,10 @@ const BlogList = ({ csrfToken }) => {
                 <BlogCard 
                     key={blog.id} 
                     title={blog.title} 
-                    content={blog.content} 
-                    id={blog.id} 
+                    content={blog.content}
+                    postId={blog.id}
+                    authorName={blog.authorName}
+                    authorId={blog.authorId}
                 />
             ))}
         </div>
