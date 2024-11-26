@@ -48,7 +48,7 @@ const BlogList = ({ csrfToken }) => {
                     content={blog.content}
                     postId={blog.id}
                     authorName={blog.authorName}
-                    authorId={blog.authorId}
+                    csrfToken={csrfToken}
                 />
             ))}
         </div>

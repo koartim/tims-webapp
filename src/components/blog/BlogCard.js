@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './Blog.css'
 
-const BlogCard = ({ title, content, authorName, authorId, postId, csrfToken }) => {
+const BlogCard = ({ title, content, authorName, postId, csrfToken }) => {
 
     const [ commentText, setCommentText ] = useState("");
     const [ comments, setComments ] = useState([]);
 
     useEffect(() => {
-        console.log("postId ", postId)
         const fetchComments = async () => {
             try {
                 const rsp = await fetch(`http://localhost:8080/api/comments/${postId}`, {
@@ -22,7 +21,6 @@ const BlogCard = ({ title, content, authorName, authorId, postId, csrfToken }) =
                     throw new Error("Failed to fetch comments")
                 }
                 const data = await rsp.json();
-                console.log(data)
                 setComments(data);
             } catch (error) {
                 console.error("error occurred", error)
@@ -38,17 +36,23 @@ const BlogCard = ({ title, content, authorName, authorId, postId, csrfToken }) =
                 const rsp = await fetch(`http://localhost:8080/api/comments/${postId}`, {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json",
-                        'X-XSRF-TOKEN': csrfToken
+                        "Content-type": "application/json",
+                        "X-XSRF-TOKEN": csrfToken
                     },
                     credentials: 'include',
-                    body: JSON.stringify({ "content": commentText, "authorId": authorId } )
+                    body: JSON.stringify(
+                        { 
+                            "content": commentText, 
+                            "userId": "1",
+                            "username": "commenter",
+                            "blogPostId": postId
+                        } 
+                    )
                 });
                 if (!rsp.ok) {
                     throw new Error("Failed to post comment")
                 }
                 const newComment = await rsp.json();
-
                 setComments([...comments, newComment]);
 
                 setCommentText("");
